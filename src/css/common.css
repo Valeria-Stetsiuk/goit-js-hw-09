@@ -16,3 +16,14 @@ img {
   display: block;
   max-width: 100%;
 }
+.box{
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  gap: 15px;
+}
+.button{
+position: relative;
+padding: 15px 25px;
+}
