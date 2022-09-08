@@ -1,0 +1,17 @@
+.form{
+    display: flex;
+    margin-top: 15px;
+    align-items: flex-end;
+    gap: 15px;}
+button {
+    font-size: 18px;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 500;
+}
+input{
+    font-size: 18px;
+}
