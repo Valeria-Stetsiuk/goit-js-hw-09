@@ -1,0 +1,27 @@
+input{
+        font-size: 18px;
+        font-weight: 400;
+}
+button {
+    font-size: 18px;
+}
+.timer {
+    display: flex;
+    margin-top: 15px;
+    gap: 15px;
+}
+.field{
+    flex-direction: column;
+}
+.value {
+    display: block;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.label {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+}

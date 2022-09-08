@@ -10,12 +10,12 @@ function onChangeBackground(evt) {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
   btnStart.setAttribute('disabled', 'true');
-  btnStop.disabled = !evt.target;
+  btnStop.removeAttribute('disabled');
 }
 
 function onStop(evt) {
   btnStop.setAttribute('disabled', 'true');
-  btnStart.disabled = !evt.target;
+  btnStart.removeAttribute('disabled');
   clearInterval(newColor);
 }
 
