@@ -34,7 +34,8 @@ const options = {
 const flatpickr = flatpickr(input, options);
 btnStart.addEventListener('click', onStartTime);
 
-function onStartTime() {
+function onStartTime(evt) {
+  evt.preventDefault();
   const time = setInterval(() => {
     const currentTime = Date.now();
     const watch = selectedTime - currentTime;

@@ -6,6 +6,7 @@ let newColor = null;
 btnStart.addEventListener('click', onChangeBackground);
 btnStop.addEventListener('click', onStop);
 function onChangeBackground(evt) {
+  evt.preventDefault();
   newColor = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
@@ -14,6 +15,7 @@ function onChangeBackground(evt) {
 }
 
 function onStop(evt) {
+  evt.preventDefault();
   btnStop.setAttribute('disabled', 'true');
   btnStart.removeAttribute('disabled');
   clearInterval(newColor);
