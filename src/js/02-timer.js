@@ -47,10 +47,10 @@ function onStartTime(evt) {
     if (watch <= 1000) {
       clearInterval(time);
       btnStart.disabled = true;
-      daysTime.textContent = 00;
-      hoursTime.textContent = 00;
-      minutesTime.textContent = 00;
-      secondsTime.textContent = 00;
+      daysTime.textContent = 0;
+      hoursTime.textContent = 0;
+      minutesTime.textContent = 0;
+      secondsTime.textContent = 0;
       return;
     }
   }, 1000);
