@@ -5,10 +5,7 @@ import Notiflix from 'notiflix';
 const input = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('button[data-start]');
 btnStart.setAttribute('disabled', 'true');
-const daysTime = document.querySelector('span[data-days]');
-const hoursTime = document.querySelector('span[data-hours]');
-const minutesTime = document.querySelector('span[data-minutes]');
-const secondsTime = document.querySelector('span[data-seconds]');
+const timerValues = document.querySelectorAll('.value');
 let selectedTime = null;
 
 const options = {
@@ -35,19 +32,16 @@ function onStartTime(evt) {
   const time = setInterval(() => {
     const currentTime = Date.now();
     const watch = selectedTime - currentTime;
-    const { days, hours, minutes, seconds } = convertMs(watch);
-    daysTime.textContent = `${days}`;
-    hoursTime.textContent = `${hours}`;
-    minutesTime.textContent = `${minutes}`;
-    secondsTime.textContent = `${seconds}`;
+    const converData = convertMs(watch);
+
+    for (const key in converData) {
+      document.querySelector(`span[data-${key}]`).textContent =
+        converData[`${key}`];
+    }
     if (watch <= 1000) {
       clearInterval(time);
       btnStart.disabled = true;
-      daysTime.textContent = '00';
-      hoursTime.textContent = '00';
-      minutesTime.textContent = '00';
-      secondsTime.textContent = '00';
-      return;
+      timerValues.forEach(key => (key.textContent = '00'));
     }
   }, 1000);
 }
