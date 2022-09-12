@@ -33,12 +33,12 @@ function onStartTime(evt) {
     const currentTime = Date.now();
     const watch = selectedTime - currentTime;
     const converData = convertMs(watch);
-
     for (const key in converData) {
-      document.querySelector(`span[data-${key}]`).textContent =
-        converData[`${key}`];
+      document.querySelector(`[data-${key}]`).textContent = addLeadingZero(
+        converData[key]
+      );
     }
-    if (watch <= 1000) {
+    if (watch < 1000) {
       clearInterval(time);
       btnStart.disabled = true;
       timerValues.forEach(key => (key.textContent = '00'));
@@ -52,12 +52,10 @@ function convertMs(ms) {
   const hour = minute * 60;
   const day = hour * 24;
 
-  const days = addLeadingZero(Math.floor(ms / day));
-  const hours = addLeadingZero(Math.floor((ms % day) / hour));
-  const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
-  const seconds = addLeadingZero(
-    Math.floor((((ms % day) % hour) % minute) / second)
-  );
+  const days = Math.floor(ms / day);
+  const hours = Math.floor((ms % day) / hour);
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
 }
